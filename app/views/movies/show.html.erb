@@ -1,6 +1,48 @@
-<p><%= link_to "Home", index_path %></p>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<p id="home"><%= link_to "Home", index_path %></p>
 <b><%= @movie.title %></b>
 
+<div class="poster">
+  <%= image_tag @attributes['poster']['imdb'] %>
+</div>
 <p><%= image_tag @movie.gif_url %></p>
   <p><iframe width="420" height="315" src="http://www.youtube.com/embed/<%= @movie.trailer_url %>" frameborder="0" allowfullscreen></iframe></p>
-<p><%= @movie.description %></p>
+
+  <p class="desc"><%= @attributes['plot_simple'] %></p>
+
+
+
+<!--
+<script type="text/javascript">
+var something;
+$(document).ready(function() {
+  $.ajax({
+    type: 'GET',
+    url: '<%= "http://mymovieapi.com/?q=#{@movie.title}" %>',
+    dataType: 'json',
+    cache: false, 
+    timeout: 7000, // seven seconds
+    success: function(data)  {
+      something = data;
+      // alert(data[0].plot_simple);
+      $('.desc').text(data[0].plot_simple);
+    }, 
+    error: function(XMLHttpRequest, textStatus, errorThrown)  {
+
+          $('form #response').removeClass().addClass('error')
+                      .html('<p>There was an <strong>' + errorThrown + 
+                          '</strong> error due to a <strong>' + textStatus +
+                          '</strong> condition.</p>').fadeIn('fast');
+
+    },
+    complete: function(XMLHttpRequest, status)  {
+    }
+
+
+  });
+});
+</script>
+-->
