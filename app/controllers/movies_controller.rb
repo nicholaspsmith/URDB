@@ -3,6 +3,8 @@ class MoviesController < ApplicationController
     id = params[:id]
     @movie = Movie.find(id)
     @attributes = @movie.get_attributes
+    @poster_url = @attributes['posters']['original']
+    @critics_score = @attributes['ratings']['critics_score']
   end
 
   def show_all
