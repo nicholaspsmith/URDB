@@ -23,6 +23,10 @@
           %tr
             %td= showtime.location
             %td= showtime.time
+        - @comments.each do |comment|
+          %tr
+            %td= comment.content
+            %td= comment.movie_id
 
 
 = form_for [@movie, @showtime]  do |f|
@@ -34,3 +38,11 @@
     = f.text_field :time
   .submit
     = f.submit 'Create Showtime', :class => "button"
+
+
+= form_for [@movie, @comment] do |f|
+  .content
+    = f.label :comments
+    = f.text_field :comments
+  .submit
+    = f.submit 'Create Comment', :class => "button"
