@@ -19,4 +19,16 @@ class Movie < ActiveRecord::Base
       description.truncate 50
     end
   end
+
+  def self.average_rating
+    average = 0
+    scores = self.all.collect do |movie|
+      average += movie.audience_rating unless movie.audience_rating == nil
+    end
+    if scores.compact.length > 0
+      average /= scores.compact.length
+    else
+      nil
+    end
+  end
 end
