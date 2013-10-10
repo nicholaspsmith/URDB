@@ -7,7 +7,11 @@ class Movie < ActiveRecord::Base
     RottenMovie.find(title: title, limit: 1)
   end
   
-  def snippet
-    description.truncate 50
+  def snippet  
+    if description == nil
+      ""
+    else
+      description.truncate 50
+    end
   end
 end
