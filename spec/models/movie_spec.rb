@@ -57,9 +57,9 @@ describe Movie do
       it "returns the average audience_score for all movies" do
         allow(movie).to receive(:audience_rating).and_return(25)
         allow(movie2).to receive(:audience_rating).and_return(33)
-        #average 29
+        
         allow(Movie).to receive(:all).and_return([movie, movie2])
-
+        #(25/33)/2 = 29
         expect(Movie.average_rating).to eq(29)
       end
     end

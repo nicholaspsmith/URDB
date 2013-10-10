@@ -31,4 +31,12 @@ class Movie < ActiveRecord::Base
       nil
     end
   end
+
+  def self.updated
+    where("updated_at > created_at")
+  end
+
+  scope :american, -> { where(:nation => "USA") }
+  scope :japanese, -> { where(:nation => "Japan") }
+  scope :french, -> { where(:nation => "France") }
 end
