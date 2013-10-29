@@ -1,7 +1,7 @@
 URDB
 =====
 
-A simple movie database modeled after IMDB.  
+<strong>A simple movie database modeled after IMDB.</strong>
 
 This app is based on the following requirements:
 
