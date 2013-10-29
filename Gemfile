@@ -38,6 +38,9 @@ gem 'zurb-foundation'
 gem 'haml-rails'
 
 
+gem 'hirb'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
